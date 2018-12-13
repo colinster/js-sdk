@@ -8,6 +8,7 @@
 'use strict'
 
 const DisNodeSDK = require('./../../');
+const fs = require ("fs");
 
 module.exports = () => {
   return new Promise((resolve, reject) => {
@@ -47,16 +48,22 @@ module.exports = () => {
 
   // END SETUP
                 // Provide source code as a string
-                const sourceCode = 'pragma solidity ^0.4.24;contract math { function plusOne(uint256 y) pure public returns(uint256 x) { x = y + 1; } }';
-                console.log('Source code:\n' + sourceCode + '\n');
+                //const sourceCode = 'pragma solidity ^0.4.24;contract math { function plusOne(uint256 y) pure public returns(uint256 x) { x = y + 1; } }';
+                //console.log('Source code:\n' + sourceCode + '\n');
 
                 // Use Transaction.compileSource to easily compile solidity code
-                const compiled = DisNodeSDK.Transaction.compileSource(sourceCode);
-                console.log('Compiled contract:');
-                console.log(compiled);
+                //const compiled = DisNodeSDK.Transaction.compileSource(sourceCode);
+                //console.log('Compiled contract:');
+                //console.log(compiled);
+
+                let bytecode = fs.readFileSync('./bytecode', 'utf8');
+                console.log('bytecode:\n' + bytecode + '\n');
+
+                let abi = fs.readFileSync('./abi', 'utf8');
+                console.log('abi:\n' + abi + '\n');
 
                 // Accounts can create Smart Contracts using compiled values
-                const contract = test.createContract(compiled.contracts[0].bytecode, compiled.contracts[0].abi);
+                const contract = test.createContract(bytecode, abi);
                 console.log('\nNew contract:\n' + contract + '\n');
 
                 // Calling "send" on the Transaction will return the original Promise (not re-send the tx)
