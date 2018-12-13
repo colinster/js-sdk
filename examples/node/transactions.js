@@ -19,7 +19,7 @@ module.exports = () => {
     // Account is a constructor with no required inputs
     const temp = new DisNodeSDK.Account();
     // It can also accept any account fields; the most prominant being the privateKey
-    const test = new DisNodeSDK.Account({name: 'NodeSDKTest', privateKey: '70dcae0f1020d5b35f2be2df6146b432be594407121ac7c8cb48540ecc5e7ede' });
+    const test = new DisNodeSDK.Account({name: 'NodeSDKTest', privateKey: 'a544cca72d88a49ec3afadc4a358125a138ad83b6fce72c1067b5773d8ae688f' });
 
     // Use account.init() to generate a private key
     temp.init();
@@ -40,8 +40,8 @@ module.exports = () => {
 
                 // Transactions may be created and executed directly
                 tx = new DisNodeSDK.Transaction({
-                  from: temp,
-                  to: test,
+                  from: test,
+                  to: temp,
                   value: 5
                 });
                 console.log('New Transaction:\n' + tx + '\n');
