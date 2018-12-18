@@ -6,8 +6,7 @@
  */
 
 'use strict';
-require('./contracts')();
-/*
+
 require('./account')()
 	.then(() => {
 		return require('./transactions')();		
@@ -18,5 +17,5 @@ require('./account')()
 	.catch((e) => {
 		console.log(e);
 	});
-*/
+
 

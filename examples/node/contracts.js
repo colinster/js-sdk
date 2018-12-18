@@ -48,18 +48,20 @@ module.exports = () => {
 
   // END SETUP
                 // Provide source code as a string
-                //const sourceCode = 'pragma solidity ^0.4.24;contract math { function plusOne(uint256 y) pure public returns(uint256 x) { x = y + 1; } }';
-                //console.log('Source code:\n' + sourceCode + '\n');
+                let sourceCode = fs.readFileSync('./source', 'utf8');
+                console.log('source code:\n' + sourceCode + '\n');
 
                 // Use Transaction.compileSource to easily compile solidity code
-                //const compiled = DisNodeSDK.Transaction.compileSource(sourceCode);
-                //console.log('Compiled contract:');
-                //console.log(compiled);
+                const compiled = DisNodeSDK.Transaction.compileSource(sourceCode);
+                console.log('Compiled contract:');
+                console.log(compiled);
 
-                let bytecode = fs.readFileSync('./bytecode', 'utf8');
+                //let bytecode = fs.readFileSync('./bytecode', 'utf8');
+                const bytecode = compiled.contracts[0].bytecode;
                 console.log('bytecode:\n' + bytecode + '\n');
 
-                let abi = fs.readFileSync('./abi', 'utf8');
+                //let abi = fs.readFileSync('./abi', 'utf8');
+                const abi = compiled.contracts[0].abi;
                 console.log('abi:\n' + abi + '\n');
 
                 // Accounts can create Smart Contracts using compiled values

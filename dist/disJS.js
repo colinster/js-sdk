@@ -16102,7 +16102,7 @@ module.exports={
   "_args": [
     [
       "elliptic@6.4.0",
-      "/Users/dlh/go/src/github.com/dispatchlabs/disnode_sdk"
+      "/Users/colin/Desktop/js-sdk"
     ]
   ],
   "_from": "elliptic@6.4.0",
@@ -16122,11 +16122,13 @@ module.exports={
     "fetchSpec": "6.4.0"
   },
   "_requiredBy": [
+    "/browserify-sign",
+    "/create-ecdh",
     "/secp256k1"
   ],
   "_resolved": "https://registry.npmjs.org/elliptic/-/elliptic-6.4.0.tgz",
   "_spec": "6.4.0",
-  "_where": "/Users/dlh/go/src/github.com/dispatchlabs/disnode_sdk",
+  "_where": "/Users/colin/Desktop/js-sdk",
   "author": {
     "name": "Fedor Indutny",
     "email": "fedor@indutny.com"
